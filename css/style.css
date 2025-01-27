@@ -1,4 +1,4 @@
-﻿html {
+html {
 	height: 100%;
 	overflow-x: hidden;
 }
@@ -495,7 +495,9 @@ h3.lines:after {
 }
 
 }
-
+.musicRow{
+	--bs-gutter-x: 0 !important;
+}
 /**************************************************************************************************/
 
 
@@ -503,7 +505,6 @@ h3.lines:after {
 
 /* Footer (Entire Bottom under the Body) */
 footer {
-	height: 120px;
 	background-color: #333a56;
 }
 
@@ -555,7 +556,6 @@ footer {
 
 /* Text lines underneath Social Media Icons*/
 ul#btmtext {
-	position: relative;
     display: block;
     text-align: center; 
 	clear: both;
