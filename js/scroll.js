@@ -1,59 +1,33 @@
-// Double click the responsive hamburger menu to toggle it in Firefox
-$(document).on('click', '#scroll li', function(event) { 
-	$("#icon a").click();
-});
+// musicWebTemplate/js/scroll.js
+// Fixed: no double-tap needed, prevents default jump, closes mobile menu cleanly
 
+$(function () {
+  var topMenu = $("#scroll");
+  var topMenuHeight = $("header").outerHeight() + $(".container").outerHeight() + 5;
 
-// Cache selectors
-var lastId,
- topMenu = $("#scroll"),
- topMenuHeight = topMenu.outerHeight()+1,
- // All list items
- menuItems = topMenu.find("a"),
- // Anchors corresponding to menu items
- scrollItems = menuItems.map(function(){
-   var item = $($(this).attr("href"));
-    if (item.length) { return item; }
- });
+  var menuItems = topMenu.find("a[href^='#']");
 
+  function closeMobileMenuIfOpen() {
+    var ul = document.getElementById("cfix");
+    if (ul && ul.className.indexOf("responsive") !== -1) {
+      // close the menu by toggling it once
+      if (typeof window.myMenu === "function") window.myMenu();
+    }
+  }
 
+  menuItems.on("click", function (event) {
+    var href = $(this).attr("href");
+    var target = $(href);
 
-// Bind to scroll
-$(window).scroll(function bind(){
-   // Get container scroll position
-   var fromTop = $(this).scrollTop()+topMenuHeight;
-   
-   // Get id of current scroll item
-   var cur = scrollItems.map(function(){
-     if ($(this).offset().top < fromTop)
-       return this;
-   });
-   // Get the id of the current element
-   cur = cur[cur.length-1];
-   var id = cur && cur.length ? cur[0].id : "";
-   
-   if (lastId !== id) {
-       lastId = id;
-       // Set/remove active class
-       menuItems
-         .parent().removeClass("selected")
-         .end().filter("[href=#"+id+"]").parent().addClass("selected");
-   }                   
-});
+    if (target.length) {
+      event.preventDefault();
 
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function smooth(event) {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 750);
-		$("#icon a").click();
-		$("#icon a").click();
-		}
-	  event.preventDefault();
+      $("html, body").stop().animate(
+        { scrollTop: target.offset().top - topMenuHeight },
+        650
+      );
+
+      closeMobileMenuIfOpen();
     }
   });
 });
