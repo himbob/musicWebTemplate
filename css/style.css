@@ -1005,11 +1005,31 @@ ul.pages-music li a {
 }
 .hero .go-btm{
   position: absolute;
-  left: 50%;
-  bottom: 22px;
+  left: 70%;
+  /*bottom: 22px;*/
   transform: translateX(-50%);
   margin: 0;
   z-index: 10;
+}
+
+@media (max-width: 600px) {
+  #hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  #go-btm-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    line-height: 1;
+    margin-left: 6px;
+  }
 }
 
 
