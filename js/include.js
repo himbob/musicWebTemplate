@@ -26,11 +26,22 @@ async function includePartials() {
       }
     })
   );
-
-  // Now that IDs like #contact exist, honor any hash that was clicked early
-  scrollToCurrentHash();
+   
+  // Now that IDs like #contact exist, honor any hash that was clicked early but only if something was newly clicked now stored click info
+  if (window._pendingHashClick) {
+    const hash = window._pendingHashClick;
+    window._pendingHashClick = null;
+    const target = document.querySelector(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }else{
+      // If the target still doesn't exist, fall back to normal hash scrolling
+      scrollToCurrentHash();
+    }
+  }else{    
+    scrollToCurrentHash();
+  }
 }
-
 document.addEventListener("DOMContentLoaded", async () => {
   await includePartials();
 
