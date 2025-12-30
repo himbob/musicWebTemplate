@@ -1,0 +1,46 @@
+[
+  {
+    "id": "november-spell",
+    "title": "November Spell",
+    "image": "pictures/songs/november-spell.jpg",
+    "tagline": "Cozy house romance with a spell in every spoonful.",
+    "about": "November Spell is a cozy, warm love song built from a real memory: my second date with the woman who became my wife. She cooked a soup so beautiful I still remember it like a scene, and it felt like she cast a gentle spell that never wore off. Underneath the indie dance and house pulse, it is really about devotion and gratitude, because the magic was never just the cooking, it was her. Our daughter sings on it too, which makes the track feel like a family snapshot you can dance to.",
+    "links": {
+      "spotify": "https://open.spotify.com/track/1ABton742Dy4kr6owwtiir?si=bb3f9764ed88464b",
+      "youtube": "https://youtu.be/1CWr3jdquiU?si=tfdi_-QNJOBSG2tZ"
+    }
+  },
+  {
+    "id": "fado-lady",
+    "title": "Fado Lady",
+    "image": "pictures/songs/fado-lady.jpg",
+    "tagline": "A love song lit by fado and candlelight.",
+    "about": "Fado Lady is a romantic snapshot from a night in a fado house, where the music, food, and atmosphere felt like one long exhale. The room was full of locals who understood every word, laughing and crying right along with the songs, while I sat there still learning Portuguese. I could not translate the lyrics, but I could feel their meaning in the faces around us and in the way the whole restaurant leaned into the sound. My wife sings on this one, and her voice is the thread that ties the memory together.",
+    "links": {
+      "spotify": "https://open.spotify.com/track/6OS9ONvZoVqB7wUj9A8nme?si=bc52807b2f5348d0",
+      "youtube": "https://youtu.be/IqXB5aPbEEU?si=UpHgW3_vcuIU-GEO"
+    }
+  },
+  {
+    "id": "yoga-teacher",
+    "title": "Yoga Teacher (My kinda blues)",
+    "image": "pictures/songs/yoga-teacher.jpg",
+    "tagline": "Hot yoga, bad focus, and a bluesy crush.",
+    "about": "A funny, slightly embarrassing blues confession about catching lust in the one place you are supposed to find inner peace. The narrator tries to stay respectful and grounded, but every cue lands like an accidental double meaning and his brain will not behave. It is playful, a little over the top, and honest enough to laugh at.",
+    "links": {
+      "spotify": "https://open.spotify.com/track/0Tbr2M7eNC1sfhNyJnHVP6?si=9c8cf95c62f5480c",
+      "youtube": "https://youtu.be/E50ldTXRu3c?si=QInH2HB-Z9Ls_PMN"
+    }
+  },
+  {
+    "id": "love-on-the-tracks",
+    "title": "Love On The Tracks (Remaster)",
+    "image": "pictures/songs/love-on-the-tracks.jpg",
+    "tagline": "Sexy trouble, sandy dunes, and a passing train.",
+    "about": "Love On The Tracks is a sexy comedy story from my time as a young Marine in the Gulf War era, back when impulse had a louder voice than common sense. It is literally about making love behind the sand dunes near Camp Pendleton, thinking we had found the perfect hidden spot, until we realized there was a public train line right behind the dunes and we got caught in the act. The song leans into the heat and the laughter of being young and reckless, then brings it back with a remaster and a little more polish.",
+    "links": {
+      "spotify": "https://open.spotify.com/track/296wRpXsMMcIQedy6n0hNq?si=99082e06992b44cc",
+      "youtube": "https://youtu.be/RfDuKz4ryqI?si=7Z0Q2hIH8wawQZe_"
+    }
+  }
+]

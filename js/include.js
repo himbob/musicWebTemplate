@@ -45,7 +45,9 @@ async function includePartials() {
 document.addEventListener("DOMContentLoaded", async () => {
   await includePartials();
 
-  // If hash changes later, scroll after the browser updates the URL
+  // NEW: signal that partial HTML is now in the page
+  document.dispatchEvent(new Event("partials:loaded"));
+
   window.addEventListener("hashchange", () => {
     setTimeout(scrollToCurrentHash, 0);
   });
