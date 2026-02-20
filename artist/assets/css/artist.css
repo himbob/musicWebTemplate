@@ -58,7 +58,7 @@ a{color:inherit; text-decoration:none}
   position:absolute; inset:0;
   background:
     radial-gradient(1200px 700px at 65% 40%, rgba(0,0,0,.05), rgba(0,0,0,.78) 58%, rgba(0,0,0,.9)),
-    url("assets/img/hero_singer.png");
+    url("../img/hero_singer.png");
   background-size:cover;
   background-position:center;
   filter:saturate(.95) contrast(1.05);
@@ -158,6 +158,11 @@ a{color:inherit; text-decoration:none}
   text-transform:uppercase;
 }
 .small{color:var(--muted); font-size:14px; line-height:1.6}
+img.media{
+  aspect-ratio:auto;
+  height:auto;
+  object-fit:contain;
+}
 .media{
   aspect-ratio:16/9;
   width:100%;
@@ -176,4 +181,244 @@ a{color:inherit; text-decoration:none}
   .grid{grid-template-columns:1fr}
   .brandName{display:none}
   .heroContent{padding:110px 0 48px}
+}
+
+.mediaNatural {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* or whatever fits your design */
+  max-height: 520px; 
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: #0f0f12;
+}
+/* Signup form */
+.signupForm{margin-top:16px}
+.formGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+.field label{
+  display:block;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.85;
+  margin:0 0 8px;
+}
+.field input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(245,244,242,.22);
+  background:rgba(0,0,0,.28);
+  color:var(--fg);
+  outline:none;
+}
+.field input:focus{
+  border-color:rgba(245,244,242,.45);
+  box-shadow:0 0 0 3px rgba(245,244,242,.08);
+}
+.fineprint{margin-top:12px; opacity:.9}
+.status{margin-top:12px; font-size:14px; color:var(--muted)}
+.status.ok{color:rgba(245,244,242,.9)}
+.status.bad{color:rgba(255,180,180,.92)}
+
+/* Music tiles (from songs.json) */
+.musicGrid{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:12px;
+}
+.musicTile{
+  display:block;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.22);
+  border-radius:18px;
+  overflow:hidden;
+}
+.musicTile img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+}
+.musicTile .tilePad{padding:12px}
+.musicTile .tileTitle{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  line-height:1.35;
+}
+.musicTile .tileTag{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.4;
+}
+.musicTile:hover{transform:translateY(-1px)}
+.spacer{height:18px}
+
+/* Icon row */
+.iconRow{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.iconLink{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(245,244,242,.20);
+  background:rgba(0,0,0,.22);
+  display:grid;
+  place-items:center;
+}
+.iconLink img{
+  width:20px;
+  height:20px;
+  object-fit:contain;
+  filter: brightness(0) invert(1);
+  opacity:.95;
+}
+
+@media (max-width: 860px){
+  .formGrid{grid-template-columns:1fr}
+  .musicGrid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+}
+@media (max-width: 420px){
+  .musicGrid{grid-template-columns: 1fr}
+}
+.cornerWrap{
+  position:absolute;
+  top:0;
+  right:0;
+  width:220px;
+  height:220px;
+  overflow:hidden;
+  z-index:20;
+  pointer-events:none;
+}
+
+.cornerRibbon{
+  position:absolute;
+  top:34px;
+  right:-58px;
+  width:260px;
+  padding:10px 0;
+  text-align:center;
+
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+
+  color:rgba(245,244,242,.95);
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(245,244,242,.22);
+  backdrop-filter: blur(10px);
+
+  transform: rotate(45deg);
+}
+/* Wrapper that sits inside the hero, bottom right */
+.cornerWrap{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:340px;
+  height:200px;
+  pointer-events:none;
+  z-index:20;
+}
+
+/* The actual ribbon */
+.cornerRibbon{
+  position:absolute;
+  right:20px;
+  bottom:22px;
+
+  width:320px;
+  padding:10px 0;
+  text-align:center;
+
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+
+  color:rgba(245,244,242,.95);
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(245,244,242,.22);
+  backdrop-filter: blur(10px);
+
+  transform: rotate(-35deg);
+  transform-origin: 100% 100%;
+  border-radius:999px;
+  pointer-events:auto;
+}
+
+/* Optional hover so it feels clickable */
+.cornerRibbon:hover{
+  background:rgba(0,0,0,.50);
+  border-color:rgba(245,244,242,.35);
+}
+
+/* On small screens, tuck it away a bit */
+@media (max-width: 860px){
+  .cornerWrap{
+    width:280px;
+    height:170px;
+  }
+  .cornerRibbon{
+    width:260px;
+    right:12px;
+    bottom:14px;
+    font-size:11px;
+  }
+}
+
+/* Angled note in the lower right of the hero, not a corner ribbon */
+.heroNote{
+  position:absolute;
+  right:64px;
+  bottom:78px;
+  z-index:25;
+
+  display:inline-block;
+  padding:12px 18px;
+
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(245,244,242,.95);
+
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(245,244,242,.22);
+  border-radius:16px;
+  backdrop-filter: blur(10px);
+
+  transform: rotate(-10deg);
+  transform-origin: 100% 100%;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.heroNote:hover{
+  background:rgba(0,0,0,.60);
+  border-color:rgba(245,244,242,.32);
+  transform: rotate(-10deg) translateY(-1px);
+}
+
+/* Mobile: keep it readable and out of the way */
+@media (max-width: 860px){
+  .heroNote{
+    right:18px;
+    bottom:18px;
+    transform: rotate(-6deg);
+    padding:10px 14px;
+    font-size:11px;
+  }
 }
