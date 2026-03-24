@@ -1,81 +1,298 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
 <head>
-  <title>Aaron Ruddick - Music Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Ruddick Music | Artist</title>
+  <meta name="description" content="Songs, stories, and studio visions by Aaron Ruddick.">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Aaron Ruddick music portfolio and production services." />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="icon" type="image/png" href="/artist/assets/img/logo_primary_black.png" sizes="32x32">
-
-
-  <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" type="text/css" title="style" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" title="style" />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-  <script>
-    function now(){
-      window.location.reload(true);
-    }
-  </script>
+  <!-- Site icons -->
+  <link rel="icon" type="image/png" href="assets/img/logo_primary_black.png" sizes="32x32">
+  <link rel="stylesheet" href="assets/css/artist.css">
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbarInner">
+        <a class="brand" href="../index.html" aria-label="Back to main site">
+          <img src="assets/img/logo_primary_black.png" alt="AR mark">
+          <div class="brandName">Aaron Ruddick</div>
+        </a>
 
-<div data-include="partials/header.html"></div>
-
-  <nav class="container">
-    <ul class="clearfix" id="cfix">
-      <li class="icon" id="icon">
-        <a href="javascript:void(0);" onclick="myMenu()">&#9776; Menu</a>
-      </li>
-      <li>
-        <ul class="scroll" id="scroll">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#music">Music</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Partials get injected here -->
-  <div data-include="partials/home.html"></div>
-
-  <div class="site_content_index">
-    <div id="content">
-
-      <div data-include="partials/about.html"></div>
-
-      <div data-include="partials/services.html"></div>
-
-      <div data-include="partials/music.html"></div>
-
-      <div data-include="partials/contact.html"></div>
-
+        <nav class="nav" aria-label="Artist navigation">
+          <a href="#home">Home</a>
+          <a href="#bio">Bio</a>
+          <a href="#music">Music</a>
+          <a href="#video">Video</a>
+          <a href="#photos">Photos</a>
+          <a href="#shop">Shop</a>
+          <a href="#contact">Contact</a>
+          <a href="#updates">Updates</a>
+        </nav>
+      </div>
     </div>
-  </div>
+  </header>
 
-<div data-include="partials/footer.html"></div>
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero" aria-label="Home">
+        <a class="heroNote" href="#music" aria-label="New song announcement">
+    NEW SONG COMING May 1,2026
+  </a>
 
+      <div class="container">
 
-  <!-- Your existing scripts stay -->
-  <script src="js/include.js"></script>
-  <script src="js/mailingList.js"></script>
-  <script src="js/contact.js"></script>
-  <script src="js/jquery.serialize-object.js"></script>
-  <script src="js/modal.js"></script>
-  <script src="js/fixedNavMenu.js"></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/musPlayer.js"></script>
-  <script src="js/vid.js"></script>
-  <script src="js/songs.js"></script>
-  <script src="js/lightbox.js"></script>
-  <link rel="stylesheet" href="css/lightbox.css" type="text/css" title="style">
-  <link rel="stylesheet" href="css/footer.css" type="text/css" title="style">
+        <div class="heroContent">
+          <div class="kicker">Artist page</div>
+          <h1 class="title">Songs that feel like memories...</h1>
+          <p class="sub">
+            This is my simple hub. Music, visuals, and a quiet way to keep in touch.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="#music">Listen</a>
+            <a class="btn" href="#video">Watch</a>
+            <a class="btn" href="#updates">Join the list</a>
+          </div>
+
+          <div class="badges" aria-label="Quick tags">
+            <span class="pill">Indie songwriter</span>
+            <span class="pill">Cinematic voice</span>
+            <span class="pill">Studio made</span>
+            <span class="pill">Santa Cruz, CA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATES (EMAIL + OPTIONAL PHONE) -->
+    <section id="updates" class="section">
+      <div class="container">
+        <h2 class="h2">Updates</h2>
+
+        <div class="card">
+          <div class="cardPad">
+            <div class="cardTitle">Join the fan list</div>
+            <div class="small">
+              Early releases, behind the scenes notes, and occasional merch drops.
+              Email is required. Cell number is optional.
+            </div>
+
+            <form
+              id="fan-signup-form"
+              class="signupForm"
+              action="https://formspree.io/f/xnjbbyaa"
+              method="POST"
+              novalidate
+            >
+              <input type="hidden" name="_subject" value="New fan list signup">
+              <input type="text" name="_gotcha" style="display:none">
+
+              <div class="formGrid">
+                <div class="field">
+                  <label for="signup-email">Email</label>
+                  <input
+                    id="signup-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="signup-phone">Cell (optional)</label>
+                  <input
+                    id="signup-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="(555) 555 5555"
+                    pattern="^[+()0-9][+()0-9\s.-]{6,24}$"
+                  >
+                </div>
+              </div>
+
+              <div class="linksRow">
+                <button class="btn btnPrimary" type="submit">Join</button>
+                <a class="btn" href="mailto:aaron.ruddick@gmail.com">Email me</a>
+              </div>
+
+              <p class="small fineprint">
+                You can unsubscribe anytime. No spam, no daily noise.
+              </p>
+
+              <div id="signup-status" class="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO -->
+    <section id="bio" class="section">
+      <div class="container">
+        <h2 class="h2">Bio</h2>
+        <div class="card">
+          <div class="cardPad">
+            <div class="small">
+              Aaron Ruddick writes songs that live between confession and cinema.
+              The sound shifts with the story, but the goal stays the same: make it honest, make it feel real.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="section">
+      <div class="container">
+        <h2 class="h2">Music</h2>
+
+        <div class="card">
+          <div class="cardPad">
+            <div class="cardTitle">Songs</div>
+            <div class="small">Some of my first songs.</div>
+            <div id="artist-music-grid" class="musicGrid" aria-label="Song list"></div>
+            <div class="linksRow">
+              <a class="btn btnPrimary" href="../songs.html">All songs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="section">
+      <div class="container">
+        <h2 class="h2">Video</h2>
+
+        <div class="grid">
+          <div class="card">
+            <video class="media mediaFrame" controls playsinline preload="metadata" poster="assets/img/poster_012s_1280x720.jpg">
+              <source src="assets/MiniTime.mp4" type="video/mp4">
+            </video>
+            <div class="cardPad">
+              <div class="cardTitle">Latest demo</div>
+              <div class="small">
+                My next song <b>Stir My Cup in Time</b> releases May 1, 2026.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardPad">
+              <div class="cardTitle">More coming soon</div>
+              <div class="small">
+                Site under construction, but this is where videos will go. Demos, behind the scenes, and eventually some fun music videos. Still under development.
+              </div>
+              <div class="linksRow">
+                <a class="btn" href="../blog_video.html">Video posts</a>
+                <a class="btn" href="#updates">Get updates</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos" class="section">
+      <div class="container">
+        <h2 class="h2">Photos for next video idea....</h2>
+
+        <div class="grid">
+          <div class="card">
+            <img class="media" src="assets/img/coffee_wide.png" alt="Moody coffee scene wide">
+            <div class="cardPad">
+              <div class="cardTitle">Scene studies</div>
+              <div class="small">A place for stills, AI cinematics, and era visuals tied to each song.  Still under development.</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="media" src="assets/img/coffee_triptych.png" alt="Three panel coffee triptych">
+            <div class="cardPad">
+              <div class="cardTitle">Triptych set</div>
+              <div class="small">Use these as rotating hero variants, socials, or a mini visual story. Still under development.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section id="shop" class="section">
+      <div class="container">
+        <h2 class="h2">Shop</h2>
+        <div class="card">
+          <div class="cardPad">
+            <div class="cardTitle">Merch</div>
+            <div class="small">
+              This site stays on GitHub Pages. The shop lives on a store platform and links from here.
+            </div>
+            <div class="linksRow">
+              <a class="btn btnPrimary" href="https://aaronruddick.printful.me" target="_blank" rel="noopener noreferrer">Printful store</a>
+              <a class="btn" href="#updates">Get drop alerts</a>
+            </div>
+            <p class="small fineprint">If the store is not live yet, this button can stay here as a placeholder.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="h2">Contact</h2>
+
+        <div class="grid">
+          <div class="card">
+            <div class="cardPad">
+              <div class="cardTitle">Reach out</div>
+              <div class="small">
+                For collabs, licensing, or anything else, email is best.
+              </div>
+              <div class="linksRow">
+                <a class="btn btnPrimary" href="mailto:aaron.ruddick@gmail.com">aaron.ruddick@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardPad">
+              <div class="cardTitle">Social and DSP</div>
+
+              <div class="iconRow" aria-label="Social and DSP links">
+                <a href="https://music.apple.com/us/artist/aaron-ruddick/1789224584" class="iconLink" target="_blank" rel="noopener noreferrer" aria-label="Apple Music">
+                  <img src="../pictures/icons/itunes.png" alt="Apple Music icon">
+                </a>
+
+                <a href="https://open.spotify.com/artist/1kTKYkeaNmBaThYCrIlWmU" class="iconLink" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                  <img src="../pictures/icons/spotify.png" alt="Spotify icon">
+                </a>
+
+                <a href="https://www.youtube.com/@aaron.ruddick" class="iconLink" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <img src="../pictures/icons/youtube.png" alt="YouTube icon">
+                </a>
+
+                <a href="https://www.amazon.com/music/player/artists/B0DSGNPM4B/aaron-ruddick" class="iconLink" target="_blank" rel="noopener noreferrer" aria-label="Amazon Music">
+                  <img src="../pictures/icons/amazon.png" alt="Amazon Music icon">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          © <span data-year></span> Aaron Ruddick Music.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/artist.js"></script>
 </body>
 </html>
