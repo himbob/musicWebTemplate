@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press | Aaron Ruddick</title>
+  <meta name="description" content="Press page and EPK for Aaron Ruddick, singer-songwriter and music producer based in Santa Cruz, California." />
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #141418;
+      --panel: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.11);
+      --text: #f4efe8;
+      --muted: #c2b8a8;
+      --soft: #a79f92;
+      --accent: #dcc6a0;
+      --accent-strong: #f1d7ae;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, rgba(220,198,160,0.10), transparent 28%),
+        linear-gradient(180deg, #0b0b0d 0%, #0d0d10 55%, #111216 100%);
+      color: var(--text);
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 11, 13, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.02rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-end;
+      font-size: 0.97rem;
+    }
+
+    .nav a {
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      line-height: 1.15;
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.9rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--accent-strong);
+    }
+
+    .lead {
+      max-width: 740px;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .hero-card,
+    .panel,
+    .asset-card,
+    .quote {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 22px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .meta-item {
+      padding: 14px 14px 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--soft);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(220,198,160,0.35);
+      color: var(--text);
+      background: rgba(220,198,160,0.10);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      background: rgba(220,198,160,0.16);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--muted);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    section {
+      padding: 18px 0 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .asset-card {
+      padding: 20px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .asset-tag {
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      margin-bottom: 8px;
+    }
+
+    .placeholder {
+      margin-top: 14px;
+      min-height: 90px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.16);
+      display: grid;
+      place-items: center;
+      color: var(--soft);
+      text-align: center;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .list li + li {
+      margin-top: 10px;
+    }
+
+    .quote {
+      padding: 22px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .small {
+      font-size: 0.94rem;
+      color: var(--soft);
+    }
+
+    .footer {
+      padding: 36px 0 60px;
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    .hr {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      margin: 26px 0;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">Aaron Ruddick</a>
+      <nav class="nav" aria-label="Press page navigation">
+        <a href="#release">Release</a>
+        <a href="#bio">Bio</a>
+        <a href="#assets">Assets</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Press / EPK</div>
+          <h1>Songs that feel like memories.</h1>
+          <p class="lead">
+            Aaron Ruddick is a singer-songwriter and music producer based in Santa Cruz, California, creating soulful, cinematic indie-pop built on storytelling, longing, and everyday moments that feel touched by magic.
+          </p>
+          <div class="buttons">
+            <a class="btn" href="https://www.aaronruddick.com/demo.html">Listen to the track</a>
+            <a class="btn secondary" href="https://linktr.ee/aaron.ruddick">Social and streaming</a>
+            <a class="btn secondary" href="mailto:aaron.ruddick@gmail.com">Email for press</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Artist</span>
+              <span class="meta-value">Aaron Ruddick</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Base</span>
+              <span class="meta-value">Santa Cruz, California</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Release</span>
+              <span class="meta-value"><em>Stir My Cup in Time</em></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Date</span>
+              <span class="meta-value">May 1, 2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Genre</span>
+              <span class="meta-value">Singer-Songwriter / Indie-Pop / Soul</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">For fans of</span>
+              <span class="meta-value">Cinematic songwriting, soulful vocals, intimate storytelling</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="release" class="wrap">
+      <div class="section-head">
+        <h2>Current release</h2>
+        <div class="section-kicker">Simple, clear, and easy for blogs to pull from</div>
+      </div>
+      <div class="panel">
+        <h3><em>Stir My Cup in Time</em></h3>
+        <p>
+          <em>Stir My Cup in Time</em> turns a simple morning ritual into something supernatural. Carried by an intimate vocal and a shifting Latin-inspired pulse, the song follows a man stirring his coffee in hopes of briefly bringing back the presence of someone he deeply loves. It is warm, reflective, a little haunted, and built around the feeling that ordinary life sometimes holds a trace of magic.
+        </p>
+        <div class="hr"></div>
+        <div class="grid-2">
+          <div>
+            <h3>Quick notes</h3>
+            <ul class="list">
+              <li>Release date: May 1, 2026</li>
+              <li>Primary lane: singer-songwriter with indie-pop and soulful elements</li>
+              <li>Mood: intimate, reflective, cinematic, romantic</li>
+              <li>Location: Santa Cruz, California</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Suggested blurb</h3>
+            <div class="quote">
+              Aaron Ruddick brings a cinematic sense of longing to <em>Stir My Cup in Time</em>, a soulful indie-pop release that transforms a simple cup of coffee into a ritual for briefly bringing lost love back into the room.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bio" class="wrap">
+      <div class="section-head">
+        <h2>Artist biography</h2>
+        <div class="section-kicker">Short and long versions</div>
+      </div>
+      <div class="grid-2">
+        <article class="panel">
+          <h3>Short bio</h3>
+          <p>
+            Aaron Ruddick is a singer-songwriter and music producer based in Santa Cruz, California. His music blends soulful storytelling, cinematic atmosphere, and indie-pop sensibility, often focusing on longing, memory, and the search for something meaningful inside everyday life.
+          </p>
+          <p>
+            His upcoming single, <em>Stir My Cup in Time</em>, turns a simple act into a supernatural ritual. Built around a warm, intimate vocal and a shifting Latin-inspired pulse, the song follows a man stirring his coffee in hopes of briefly bringing back the presence of someone deeply loved.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h3>Long bio</h3>
+          <p>
+            Aaron Ruddick is a singer-songwriter and music producer based in Santa Cruz, California. His work lives at the intersection of soulful storytelling, cinematic mood, and indie-pop songwriting. Across his music, he returns to themes of longing, memory, romance, and the quiet hope that ordinary moments might still hold something mysterious.
+          </p>
+          <p>
+            His upcoming single, <em>Stir My Cup in Time</em>, captures that instinct directly. The song centers on a man who stirs a cup of coffee as if performing a ritual, hoping to summon the fleeting return of someone he deeply loves. Guided by an intimate vocal, vivid imagery, and a subtle Latin-inspired rhythmic movement, the track blends warmth, melancholy, and a touch of magic.
+          </p>
+          <p>
+            Before fully committing to music, Ruddick spent years in programming and engineering. That background still informs the care and precision in his work, but songwriting and production have become the place where he speaks most honestly. As a father, veteran, and Berklee student, he brings lived experience to songs that aim to feel personal, vivid, and emotionally real.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="assets" class="wrap">
+      <div class="section-head">
+        <h2>Press assets</h2>
+        <div class="section-kicker">Replace the placeholders with your live files</div>
+      </div>
+      <div class="grid-3">
+        <article class="asset-card">
+          <div>
+            <div class="asset-tag">Artist photo</div>
+            <h3>Press image</h3>
+            <p class="small">Add a square or portrait artist image here and link it to the full file.</p>
+          </div>
+          <div class="placeholder">Replace with your preferred artist image</div>
+        </article>
+
+        <article class="asset-card">
+          <div>
+            <div class="asset-tag">Single artwork</div>
+            <h3><em>Stir My Cup in Time</em></h3>
+            <p class="small">Add the official cover art and link it to the full-resolution version.</p>
+          </div>
+          <div class="placeholder">Replace with cover art image</div>
+        </article>
+
+        <article class="asset-card">
+          <div>
+            <div class="asset-tag">Download</div>
+            <h3>One sheet / PDF</h3>
+            <p class="small">Optional: link a downloadable PDF version of this page for writers and supervisors.</p>
+          </div>
+          <div class="placeholder">Add PDF link here if you want one</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="links" class="wrap">
+      <div class="section-head">
+        <h2>Links</h2>
+        <div class="section-kicker">Use direct links where possible</div>
+      </div>
+      <div class="panel">
+        <div class="grid-2">
+          <div>
+            <h3>Music and socials</h3>
+            <ul class="list">
+              <li><a href="https://www.aaronruddick.com/">Official website</a></li>
+              <li><a href="https://linktr.ee/aaron.ruddick">Linktree</a></li>
+              <li><a href="https://www.aaronruddick.com/demo.html">Private or preview track link</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Notes for submissions</h3>
+            <ul class="list">
+              <li>Use this page as the website or EPK field for press forms.</li>
+              <li>Use a direct image URL for artwork or artist photo if the form asks for it.</li>
+              <li>Keep this page unlinked from the main nav if you want it hidden.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <div class="section-kicker">Press, features, licensing, and general inquiries</div>
+      </div>
+      <div class="panel">
+        <h3>Aaron Ruddick</h3>
+        <p>
+          Email: <a href="mailto:aaron.ruddick@gmail.com">aaron.ruddick@gmail.com</a>
+        </p>
+        <p class="small">
+          For reviews, interviews, playlist consideration, sync inquiries, or blog features.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    © Aaron Ruddick Music.
+  </footer>
+</body>
+</html>
