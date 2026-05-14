@@ -1,5 +1,26 @@
 [
   {
+    "id": "child-of-forgotten-sounds",
+    "title": "The Child of Forgotten Sounds",
+    "image": "assets/img/child-forgotten-sounds/child_street_wide.png",
+    "tagline": "Broken headphones, city ghosts, and music that finds its way back.",
+    "about": "A cinematic street story about a girl with broken headphones who hears music no one else can, and a listener who starts to remember what the world used to sound like.",
+    "links": {
+      "listen": "https://artists.landr.com/991043513209"
+    }
+  },
+  {
+    "id": "stir-my-cup-in-time",
+    "title": "Stir My Cup in Time",
+    "image": "assets/img/StirMyCupInTimePress.png",
+    "tagline": "A coffee ritual, lost love, and a quiet spell.",
+    "about": "A cinematic, soul tinged song about stirring a cup like a ritual to briefly bring back the presence of someone loved and lost.",
+    "links": {
+      "review": "https://illustratemagazine.com/stir-my-cup-in-time-by-aaron-ruddick-review/",
+      "youtube": "https://youtu.be/lBoQc5t_YBc"
+    }
+  },
+  {
     "id": "november-spell",
     "title": "November Spell",
     "image": "pictures/songs/november-spell.jpg",

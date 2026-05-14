@@ -124,17 +124,28 @@
   const grid = document.getElementById("artist-music-grid");
   if (!grid) return;
 
-  // Helper: make a relative site path work from /artist/
-  function fromArtistRoot(path) {
+  function sitePrefix() {
+    return window.location.pathname.includes("/artist/") ? "../" : "";
+  }
+
+  // Helper: make a relative site path work from either / or /artist/
+  function fromSiteRoot(path) {
     if (!path) return "";
     if (path.startsWith("http://") || path.startsWith("https://")) return path;
-    if (path.startsWith("/")) return path; // absolute from domain root
-    return "../" + path.replace(/^\.?\//, "");
+    if (path.startsWith("/")) return path;
+    return sitePrefix() + path.replace(/^\.?\//, "");
   }
 
   function pickOutLink(song) {
     const links = song && song.links ? song.links : {};
-    return links.youtube || links.spotify || "";
+    return links.listen || links.youtube || links.spotify || "";
+  }
+
+  function cssToken(s) {
+    return String(s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "song";
   }
 
   function escapeHtml(s) {
@@ -148,7 +159,7 @@
 
   async function loadSongs() {
     // Cache bust so GitHub Pages updates are seen
-    const url = "../data/songs.json?v=" + Date.now();
+    const url = sitePrefix() + "data/songs.json?v=" + Date.now();
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("Failed to load songs.json: " + res.status);
     return await res.json();
@@ -167,16 +178,17 @@
       .map((song) => {
         const title = escapeHtml(song.title);
         const tagline = escapeHtml(song.tagline || "");
-        const imgSrc = fromArtistRoot(song.image || "");
+        const imgSrc = fromSiteRoot(song.image || "");
         const outLink = pickOutLink(song);
+        const tileClass = "musicTile songTile-" + cssToken(song.id || title);
 
         // Force external if available, otherwise fall back to internal
-        const href = outLink ? outLink : `../song.html?id=${encodeURIComponent(song.id || "")}`;
+        const href = outLink ? outLink : `${sitePrefix()}song.html?id=${encodeURIComponent(song.id || "")}`;
         const isExternal = href.startsWith("http://") || href.startsWith("https://");
         const target = isExternal ? ` target="_blank" rel="noopener noreferrer"` : "";
 
         return `
-          <a class="musicTile" href="${href}"${target} aria-label="Open ${title}">
+          <a class="${tileClass}" href="${href}"${target} aria-label="Open ${title}">
             <img src="${imgSrc}" alt="${title}">
             <div class="tilePad">
               <div class="tileTitle">${title}</div>
