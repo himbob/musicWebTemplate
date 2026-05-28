@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Ruddick | Production Services</title>
+  <meta name="description" content="Professional music production and songwriting services. Song development, arrangement, mixing, mastering, and more.">
+
+  <link rel="icon" type="image/png" href="assets/img/logo_primary_black.png" sizes="32x32">
+  <link rel="stylesheet" href="assets/css/artist.css">
+  <style>
+    /* Services page specific styles */
+    .servicesHero {
+      min-height: 60vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0 64px;
+    }
+
+    .servicesHero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+    }
+
+    .servicesHero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(800px 600px at 40% 50%, rgba(100, 80, 150, 0.15), transparent 70%);
+      z-index: 2;
+    }
+
+    .servicesHeroContent {
+      position: relative;
+      z-index: 10;
+      width: min(920px, 100%);
+      text-align: center;
+    }
+
+    .servicesGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .serviceCard {
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(15, 15, 18, 0.65);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .serviceCard:hover {
+      background: rgba(15, 15, 18, 0.85);
+      border-color: rgba(245, 244, 242, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .serviceCard h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .serviceCard p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .serviceCardWide {
+      grid-column: 1 / -1;
+    }
+
+    .servicesLead {
+      max-width: 60ch;
+      margin: 24px auto;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .ctaContact {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .ctaContact .sub {
+      max-width: 60ch;
+      margin: 0 auto 18px;
+    }
+
+    @media (max-width: 860px) {
+      .servicesGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .serviceCardWide {
+        grid-column: 1;
+      }
+
+      .servicesHero {
+        min-height: 50vh;
+        padding: 80px 0 48px;
+      }
+
+      .servicesHeroContent {
+        text-align: center;
+      }
+
+      .title {
+        font-size: clamp(32px, 4vw, 48px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbarInner">
+        <a class="brand" href="index.html" aria-label="Aaron Ruddick home">
+          <img src="assets/img/logo_primary_black.png" alt="AR mark">
+          <div class="brandName">Aaron Ruddick</div>
+        </a>
+
+        <nav class="nav" aria-label="Artist navigation">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#music">Music</a>
+          <a href="index.html#video">Video</a>
+          <a href="index.html#photos">Visuals</a>
+          <a href="index.html#updates">Updates</a>
+          <a href="services.html">Services</a>
+          <a href="https://aaronruddick.printful.me/" target="_blank" rel="noopener noreferrer">Store</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="servicesHero">
+      <div class="container">
+        <div class="servicesHeroContent">
+          <div class="kicker">Professional Services</div>
+          <h1 class="title">Production & Songwriting</h1>
+          <p class="servicesLead">
+            Listening-first services that help songs move from rough ideas to finished, shareable releases.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="servicesGrid">
+          <div class="serviceCard">
+            <h3>Song Development & Co-Writing</h3>
+            <p>
+              Turning ideas, stories, and emotions into finished songs centered around your voice and intent.
+              Lyric shaping, groove development, melody exploration, and structure support as needed.
+            </p>
+          </div>
+
+          <div class="serviceCard">
+            <h3>Arrangement & Groove Shaping</h3>
+            <p>
+              Simplifying clutter and shaping movement so the song feels grounded and alive.
+              Focus on groove, dynamics, and making space for what matters most.
+            </p>
+          </div>
+
+          <div class="serviceCard">
+            <h3>Vocal Editing & Alignment</h3>
+            <p>
+              Comping, timing, tuning, and cleanup that keeps performances human and emotionally intact.
+              Alignment that locks to the groove without sounding robotic.
+            </p>
+          </div>
+
+          <div class="serviceCard">
+            <h3>Mix Finishing</h3>
+            <p>
+              Balancing stems, cleaning up low end and mids, and bringing clarity and cohesion so your song
+              feels ready to be shared professionally.
+            </p>
+          </div>
+
+          <div class="serviceCard">
+            <h3>Independent Release Mastering</h3>
+            <p>
+              Preparing songs for independent release by shaping tone, balance, and loudness to match a reference track.
+              Ideal for artists who want their music to sound cohesive and enjoyable for personal releases,
+              streaming, or sharing.
+            </p>
+          </div>
+
+          <div class="serviceCard">
+            <h3>Stem Splitting & Recovery</h3>
+            <p>
+              Separating vocals and instruments from a stereo track to regain control for mixing, arrangement changes,
+              or remixing. Results depend on the source material, but useful when original sessions are unavailable.
+            </p>
+          </div>
+
+          <div class="serviceCard serviceCardWide">
+            <h3>Song Feedback & Clarity Sessions</h3>
+            <p>
+              Focused listening and guidance to help identify what is working, what is fighting the song, and where to focus next.
+              Ideal when you are stuck and want a clear plan for the next revision.
+            </p>
+          </div>
+        </div>
+
+        <div class="ctaContact">
+          <h2 class="h2">Ready to Work Together?</h2>
+          <p class="sub">
+            Get in touch to discuss your project, ask questions, or learn more about how these services can help your music.
+          </p>
+          <div class="linksRow" style="justify-content: center;">
+            <a class="btn btnPrimary" href="index.html#contact">Start a conversation</a>
+            <a class="btn" href="mailto:aaron.ruddick@gmail.com">Email directly</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span data-year></span> Aaron Ruddick Music.
+      <span class="footerPressLink">
+        <a href="index.html#contact">Contact</a> • 
+        <a href="index.html">Home</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="assets/js/artist.js"></script>
+</body>
+</html>
