@@ -162,6 +162,7 @@ img.media{
   aspect-ratio:auto;
   height:auto;
   object-fit:contain;
+  filter:grayscale(1) contrast(1.05);
 }
 .media{
   aspect-ratio:16/9;
@@ -192,6 +193,7 @@ img.media{
   display: block;
   margin: 0 auto;
   background: #0f0f12;
+  filter:grayscale(1) contrast(1.05);
 }
 /* Signup form */
 .signupForm{margin-top:16px}
@@ -246,6 +248,7 @@ img.media{
   aspect-ratio:1/1;
   object-fit:cover;
   display:block;
+  filter:grayscale(1) contrast(1.06);
 }
 .musicTile .tilePad{padding:12px}
 .musicTile .tileTitle{
