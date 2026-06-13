@@ -1,31 +1,50 @@
 [
   {
+    "id": "the-river-knows",
+    "title": "The River Knows",
+    "image": "pictures/songs/the-river-knows.png",
+    "imageFit": "contain",
+    "releaseDate": "2026-06-12",
+    "tagline": "Outsiders follow the river toward something strange, secret, and free.",
+    "about": "The River Knows is a dark, blues-leaning song about people who never quite belonged finding a way out together. Drawn by something ancient and unspoken, they follow the river away from the city, the rules, and the lives they were expected to live. Part escape story, part myth, the song turns the river into a keeper of secrets — a place where names wash away, old identities dissolve, and something stranger and freer waits beneath the surface.",
+    "links": {
+      "spotify": "https://open.spotify.com/album/4KsMsC9hCJ46ibQcTfGrtL?si=kAuPKY9ySoWDLMsiqpZH7g",
+      "youtube": "https://youtu.be/VkuE44tJayM?si=lr3NX2O4-5AnQZd2"
+    }
+  },
+  {
     "id": "child-of-forgotten-sounds",
     "title": "The Child of Forgotten Sounds",
-    "image": "assets/img/child-forgotten-sounds/child_street_wide.png",
+    "image": "pictures/songs/child-forgotten-sounds.png",
+    "imageFit": "cover",
     "tagline": "Broken headphones, city ghosts, and music that finds its way back.",
     "about": "A cinematic street story about a girl with broken headphones who hears music no one else can, and a listener who starts to remember what the world used to sound like.",
     "links": {
+      "spotify": "https://open.spotify.com/album/6akITlkEDZEwKENUTbTfcJ?si=hFszTHhWRR6OoCTHcd9VFg",
+      "youtube": "https://youtu.be/F635wymvPM4?si=3s91hLKN46VkWjM1",
       "listen": "https://artists.landr.com/991043513209"
     }
   },
   {
     "id": "stir-my-cup-in-time",
     "title": "Stir My Cup in Time",
-    "image": "assets/img/StirMyCupInTimePress.png",
+    "image": "pictures/songs/stir-my-cup.png",
+    "imageFit": "contain",
     "tagline": "A coffee ritual, lost love, and a quiet spell.",
-    "about": "A cinematic, soul tinged song about stirring a cup like a ritual to briefly bring back the presence of someone loved and lost.",
+    "about": "A cinematic, soul-tinged song about stirring a cup like a ritual to briefly bring back the presence of someone loved and lost.",
     "links": {
-      "review": "https://illustratemagazine.com/stir-my-cup-in-time-by-aaron-ruddick-review/",
-      "youtube": "https://youtu.be/lBoQc5t_YBc"
+      "spotify": "https://open.spotify.com/album/7A0LdAazC73QJ7BryIGdWb?si=QSHZeR6CQiaqNhtzr1nYcg",
+      "youtube": "https://youtu.be/lBoQc5t_YBc",
+      "review": "https://illustratemagazine.com/stir-my-cup-in-time-by-aaron-ruddick-review/"
     }
   },
   {
     "id": "november-spell",
     "title": "November Spell",
     "image": "pictures/songs/november-spell.jpg",
+    "imageFit": "cover",
     "tagline": "Cozy house romance with a spell in every spoonful.",
-    "about": "November Spell is a cozy, warm love song built from a real memory: my second date with the woman who became my wife. She cooked a soup so beautiful I still remember it like a scene, [...]",
+    "about": "November Spell is a warm, cozy love song built from the memory of a second date, a homemade soup, and the feeling that an ordinary night can turn into something quietly magical.",
     "links": {
       "spotify": "https://open.spotify.com/track/1ABton742Dy4kr6owwtiir?si=bb3f9764ed88464b",
       "youtube": "https://youtu.be/1CWr3jdquiU?si=tfdi_-QNJOBSG2tZ"
@@ -35,8 +54,9 @@
     "id": "fado-lady",
     "title": "Fado Lady",
     "image": "pictures/songs/fado-lady.jpg",
+    "imageFit": "cover",
     "tagline": "A love song lit by fado and candlelight.",
-    "about": "Fado Lady is a romantic snapshot from a night in a fado house, where the music, food, and atmosphere felt like one long exhale. The room was full of locals who understood every word,[...]",
+    "about": "Fado Lady is a romantic snapshot from a night in a fado house, where the music, food, and atmosphere felt like one long exhale. It is a song about being pulled into a room, a voice, and a feeling you do not want to leave.",
     "links": {
       "spotify": "https://open.spotify.com/track/6OS9ONvZoVqB7wUj9A8nme?si=bc52807b2f5348d0",
       "youtube": "https://youtu.be/IqXB5aPbEEU?si=UpHgW3_vcuIU-GEO"
@@ -46,8 +66,9 @@
     "id": "yoga-teacher",
     "title": "Yoga Teacher (My kinda blues)",
     "image": "pictures/songs/yoga-teacher.jpg",
+    "imageFit": "cover",
     "tagline": "Hot yoga, bad focus, and a bluesy crush.",
-    "about": "A funny, slightly embarrassing blues confession about catching lust in the one place you are supposed to find inner peace. The narrator tries to stay respectful and grounded, but eve[...]",
+    "about": "A funny blues confession about catching lust in the one place you are supposed to find inner peace. The narrator tries to stay respectful and grounded, but the room keeps pulling his attention in the wrong direction.",
     "links": {
       "spotify": "https://open.spotify.com/track/0Tbr2M7eNC1sfhNyJnHVP6?si=9c8cf95c62f5480c",
       "youtube": "https://youtu.be/E50ldTXRu3c?si=QInH2HB-Z9Ls_PMN"

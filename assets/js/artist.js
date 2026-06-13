@@ -124,51 +124,24 @@
   const grid = document.getElementById("artist-music-grid");
   if (!grid) return;
 
-  function sitePrefix() {
-    return window.location.pathname.includes("/artist/") ? "../" : "";
-  }
-
-  // Helper: make a relative site path work from either / or /artist/
-  function fromSiteRoot(path) {
-    if (!path) return "";
-    if (path.startsWith("http://") || path.startsWith("https://")) return path;
-    if (path.startsWith("/")) return path;
-    return sitePrefix() + path.replace(/^\.?\//, "");
-  }
-
-  function pickOutLink(song) {
-    const links = song && song.links ? song.links : {};
-    return links.listen || links.youtube || links.spotify || "";
-  }
-
-  function cssToken(s) {
-    return String(s || "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "") || "song";
-  }
-
-  function escapeHtml(s) {
-    return String(s || "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
+  const ui = window.AaronSongUI;
 
   async function loadSongs() {
-    // Cache bust so GitHub Pages updates are seen
-    const url = sitePrefix() + "data/songs.json?v=" + Date.now();
+    const url = ui.sitePrefix() + "data/songs.json?v=" + Date.now();
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("Failed to load songs.json: " + res.status);
-    return await res.json();
+    const songs = await res.json();
+    if (!Array.isArray(songs)) throw new Error("songs.json must be an array");
+    return songs;
   }
 
   function renderTiles(songs) {
     const maxTiles = 8;
-
     const items = Array.isArray(songs) ? songs.slice(0, maxTiles) : [];
+
+    ui.injectJsonLd("artist-schema", ui.artistSchema());
+    if (items[0]) ui.injectJsonLd("current-song-schema", ui.songSchema(items[0]));
+
     if (!items.length) {
       grid.innerHTML = `<div class="small">No songs found.</div>`;
       return;
@@ -176,25 +149,24 @@
 
     grid.innerHTML = items
       .map((song) => {
-        const title = escapeHtml(song.title);
-        const tagline = escapeHtml(song.tagline || "");
-        const imgSrc = fromSiteRoot(song.image || "");
-        const outLink = pickOutLink(song);
-        const tileClass = "musicTile songTile-" + cssToken(song.id || title);
-
-        // Force external if available, otherwise fall back to internal
-        const href = outLink ? outLink : `${sitePrefix()}song.html?id=${encodeURIComponent(song.id || "")}`;
-        const isExternal = href.startsWith("http://") || href.startsWith("https://");
-        const target = isExternal ? ` target="_blank" rel="noopener noreferrer"` : "";
+        const title = ui.escapeHtml(song.title || "Untitled song");
+        const tagline = ui.escapeHtml(song.tagline || "");
+        const imgSrc = ui.attr(ui.fromSiteRoot(song.image || ""));
+        const detailUrl = ui.attr(ui.detailUrl(song));
+        const tileClass = "musicTile songTile-" + ui.cssToken(song.id || title);
+        const imageClass = ui.imageFitClass(song, "tileImage");
 
         return `
-          <a class="${tileClass}" href="${href}"${target} aria-label="Open ${title}">
-            <img src="${imgSrc}" alt="${title}">
+          <article class="${tileClass}">
+            <a class="tileArtwork" href="${detailUrl}" aria-label="Open details for ${title}">
+              <img class="${imageClass}" src="${imgSrc}" alt="${title}">
+            </a>
             <div class="tilePad">
-              <div class="tileTitle">${title}</div>
-              <div class="tileTag">${tagline}</div>
+              <div class="tileTitle"><a href="${detailUrl}">${title}</a></div>
+              ${tagline ? `<div class="tileTag">${tagline}</div>` : ""}
+              <div class="tileActions">${ui.renderLinkButtons(song, { includeDetails: true, compact: true })}</div>
             </div>
-          </a>
+          </article>
         `;
       })
       .join("");

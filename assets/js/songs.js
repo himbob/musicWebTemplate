@@ -2,64 +2,10 @@
 
 (function () {
   const SONGS_URL = "data/songs.json?v=" + Date.now();
+  const ui = window.AaronSongUI;
 
   function pageName() {
     return (window.location.pathname || "").split("/").pop().toLowerCase() || "index.html";
-  }
-
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
-  function attr(value) {
-    return String(value ?? "").replaceAll('"', "%22").trim();
-  }
-
-  function cssToken(value) {
-    return String(value || "song")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "") || "song";
-  }
-
-  function pickPrimaryLink(song) {
-    const links = song && song.links ? song.links : {};
-    return links.listen || links.youtube || links.spotify || links.review || "";
-  }
-
-  function linkLabel(key) {
-    const labels = {
-      listen: "Listen",
-      spotify: "Spotify",
-      youtube: "YouTube",
-      review: "Review"
-    };
-    return labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
-  }
-
-  function renderLinkButtons(song, includeOpen) {
-    const links = song && song.links ? song.links : {};
-    const order = ["listen", "spotify", "youtube", "review"];
-    const buttons = [];
-
-    order.forEach((key) => {
-      if (!links[key]) return;
-      const primary = buttons.length === 0 ? " btnPrimary" : "";
-      buttons.push(`<a class="btn${primary}" href="${attr(links[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkLabel(key))}</a>`);
-    });
-
-    if (includeOpen) {
-      buttons.push(`<a class="btn" href="song.html?id=${encodeURIComponent(song.id)}">Details</a>`);
-    } else {
-      buttons.push(`<a class="btn" href="songs.html">All songs</a>`);
-    }
-
-    return buttons.join("");
   }
 
   async function loadSongs() {
@@ -74,30 +20,29 @@
     const target = document.getElementById("songs-list");
     if (!target) return;
 
+    ui.injectJsonLd("songs-list-schema", ui.songListSchema(songs));
+
     if (!songs.length) {
       target.innerHTML = `<div class="emptyState small">No songs are listed yet.</div>`;
       return;
     }
 
     target.innerHTML = songs.map((song) => {
-      const title = escapeHtml(song.title || "Untitled song");
-      const tagline = escapeHtml(song.tagline || "");
-      const image = attr(song.image || "");
-      const detailUrl = `song.html?id=${encodeURIComponent(song.id || "")}`;
-      const primaryLink = pickPrimaryLink(song);
-      const titleHref = primaryLink || detailUrl;
-      const isExternal = /^https?:\/\//.test(titleHref);
-      const externalAttrs = isExternal ? ` target="_blank" rel="noopener noreferrer"` : "";
+      const title = ui.escapeHtml(song.title || "Untitled song");
+      const tagline = ui.escapeHtml(song.tagline || "");
+      const image = ui.attr(ui.fromSiteRoot(song.image || ""));
+      const detailUrl = ui.attr(ui.detailUrl(song));
+      const imageClass = ui.imageFitClass(song, "songCardImage");
 
       return `
-        <article class="songCard songCard-${cssToken(song.id || title)}">
-          <a href="${attr(detailUrl)}" aria-label="Open details for ${title}">
-            <img class="songCardImage" src="${image}" alt="${title}">
+        <article class="songCard songCard-${ui.cssToken(song.id || title)}">
+          <a href="${detailUrl}" aria-label="Open details for ${title}">
+            <img class="${imageClass}" src="${image}" alt="${title}">
           </a>
           <div class="songCardBody">
-            <h2 class="songCardTitle"><a href="${attr(titleHref)}"${externalAttrs}>${title}</a></h2>
+            <h2 class="songCardTitle"><a href="${detailUrl}">${title}</a></h2>
             ${tagline ? `<p class="songCardText">${tagline}</p>` : ""}
-            <div class="songActions">${renderLinkButtons(song, true)}</div>
+            <div class="songActions">${ui.renderLinkButtons(song, { includeDetails: true, compact: true })}</div>
           </div>
         </article>
       `;
@@ -124,26 +69,27 @@
       return;
     }
 
-    const title = escapeHtml(song.title || "Untitled song");
-    const tagline = escapeHtml(song.tagline || "");
-    const about = escapeHtml(song.about || "");
-    const image = attr(song.image || "");
+    ui.setSongMeta(song);
+    ui.injectJsonLd("song-detail-schema", ui.songSchema(song));
 
-    document.title = `${song.title} | Aaron Ruddick`;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) metaDescription.setAttribute("content", song.tagline || song.about || "Aaron Ruddick song page.");
+    const title = ui.escapeHtml(song.title || "Untitled song");
+    const tagline = ui.escapeHtml(song.tagline || "");
+    const about = ui.escapeHtml(song.about || "");
+    const image = ui.attr(ui.fromSiteRoot(song.image || ""));
+    const imageClass = ui.imageFitClass(song, "songDetailCover");
+    const released = song.releaseDate ? `<div class="songMetaLine">Released ${ui.escapeHtml(song.releaseDate)} · Aaron Ruddick</div>` : `<div class="songMetaLine">Aaron Ruddick song</div>`;
 
     target.innerHTML = `
       <div class="songDetailGrid">
         <div>
-          <img class="songDetailCover" src="${image}" alt="${title}">
+          <img class="${imageClass}" src="${image}" alt="${title}">
         </div>
         <div class="songDetailCopy">
           <div class="pageKicker">Aaron Ruddick song</div>
           <h1 class="title">${title}</h1>
           ${tagline ? `<p class="sub">${tagline}</p>` : ""}
-          <div class="songMetaLine">Memory · story · cinematic songwriter</div>
-          <div class="linksRow">${renderLinkButtons(song, false)}</div>
+          ${released}
+          <div class="linksRow">${ui.renderLinkButtons(song, { includeDetails: false, includeAllSongs: true })}</div>
           ${about ? `<section class="songAbout card spacerTop"><div class="cardPad"><div class="cardTitle">About</div><p class="small">${about}</p></div></section>` : ""}
         </div>
       </div>
@@ -154,7 +100,7 @@
     console.error(err);
     const target = document.getElementById("songs-list") || document.getElementById("song-detail");
     if (target) {
-      target.innerHTML = `<div class="emptyState small">Could not load the song data. ${escapeHtml(err.message || err)}</div>`;
+      target.innerHTML = `<div class="emptyState small">Could not load the song data. ${ui.escapeHtml(err.message || err)}</div>`;
     }
   }
 

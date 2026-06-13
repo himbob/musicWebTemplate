@@ -58,7 +58,7 @@ a{color:inherit; text-decoration:none}
   position:absolute; inset:0;
   background:
     radial-gradient(1200px 700px at 65% 40%, rgba(0,0,0,.05), rgba(0,0,0,.78) 58%, rgba(0,0,0,.9)),
-    url("../img/child-forgotten-sounds/child_street_wide.png");
+    var(--hero-image, url("../img/the-river-knows/river-hero.jpg"));
   background-size:cover;
   background-position:center;
   filter:grayscale(1) saturate(.25) contrast(1.15);
@@ -117,6 +117,7 @@ a{color:inherit; text-decoration:none}
   border-color:transparent;
 }
 .btn:hover{transform:translateY(-1px)}
+.btnCompact{padding:10px 14px; font-size:11px}
 .badges{
   margin-top:24px;
   display:flex; gap:10px; flex-wrap:wrap;
@@ -237,20 +238,34 @@ img.media{
   gap:12px;
 }
 .musicTile{
-  display:block;
+  display:flex;
+  flex-direction:column;
   border:1px solid rgba(255,255,255,.10);
   background:rgba(0,0,0,.22);
   border-radius:18px;
   overflow:hidden;
+  min-height:100%;
 }
-.musicTile img{
+.tileArtwork{display:block}
+.tileImage{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
   display:block;
   filter:grayscale(1) contrast(1.06);
 }
-.musicTile .tilePad{padding:12px}
+.tileImage--contain{
+  object-fit:contain;
+  padding:10px;
+  background:#0f0f12;
+}
+.musicTile .tilePad{
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1;
+}
 .musicTile .tileTitle{
   font-size:12px;
   letter-spacing:.14em;
@@ -258,18 +273,22 @@ img.media{
   line-height:1.35;
 }
 .musicTile .tileTag{
-  margin-top:6px;
   font-size:13px;
   color:var(--muted);
   line-height:1.4;
 }
-.musicTile:hover{transform:translateY(-1px)}
-/* Keep the Stir My Cup in Time artwork from being cropped in the music grid. */
-.songTile-stir-my-cup-in-time img{
-  object-fit:contain;
-  padding:10px;
-  background:#0f0f12;
+.tileActions{
+  margin-top:auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }
+.tileActions .btn{
+  padding:8px 10px;
+  font-size:10px;
+  letter-spacing:.12em;
+}
+.musicTile:hover{transform:translateY(-1px)}
 
 .spacer{height:18px}
 
@@ -448,6 +467,11 @@ img.media{
   display:block;
   filter:grayscale(1) contrast(1.08);
 }
+.featureImage--contain{
+  object-fit:contain;
+  padding:18px;
+  background:#0f0f12;
+}
 .featureCopy{
   display:flex;
   flex-direction:column;
@@ -463,6 +487,31 @@ img.media{
   filter:grayscale(1) contrast(1.05);
 }
 .mediaFrame{object-fit:cover}
+.mediaLink{
+  position:relative;
+  display:block;
+  overflow:hidden;
+}
+.mediaLink .media{
+  transition:transform .18s ease;
+}
+.mediaLink:hover .media{
+  transform:scale(1.01);
+}
+.playBadge{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(245,244,242,.24);
+  background:rgba(0,0,0,.56);
+  color:rgba(245,244,242,.96);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  backdrop-filter:blur(10px);
+}
 .featureSection{padding-top:78px}
 @media (max-width: 860px){
   .featureCard{grid-template-columns:1fr}
@@ -528,7 +577,7 @@ img.media{
   background:#0f0f12;
   filter:grayscale(1) contrast(1.07);
 }
-.songCard.songCard-stir-my-cup-in-time .songCardImage{
+.songCardImage--contain{
   object-fit:contain;
   padding:12px;
 }
@@ -575,6 +624,10 @@ img.media{
   border:1px solid rgba(255,255,255,.10);
   background:#0f0f12;
   filter:grayscale(1) contrast(1.07);
+}
+.songDetailCover--contain{
+  object-fit:contain;
+  padding:14px;
 }
 .songDetailCopy .title{
   margin-top:0;
